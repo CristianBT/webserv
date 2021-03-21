@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import { Model, ModelBody, ModalFooter, ModalHeader } from 'reactstrap';
 
  const url = "https://app-bucetas.herokuapp.com/api/consultahorarios"; 
@@ -12,6 +13,7 @@ class Afluencia extends Component {
     }
    post=()=>{
         const token = localStorage.getItem('token');
+        const data={ dia: this.dia, entrda: this.entrada, salida: this.salida};
         const requestOptions = {
             method: 'POST',
             headers: { 
@@ -19,7 +21,7 @@ class Afluencia extends Component {
                 'Authorization': `Bearer  `,
                 'token': token
             },
-            body: JSON.stringify()
+            body: JSON.stringify(data)
         };
         fetch('https://app-bucetas.herokuapp.com/api/consultahorarios', requestOptions,
            )
@@ -30,7 +32,7 @@ class Afluencia extends Component {
 
    }
    componentDidMount(){
-       this.post();
+    
    }
 
 
@@ -41,7 +43,23 @@ class Afluencia extends Component {
             <div>
                <h5 className="text-align center">AFLUENCIA DE ESTUDIANTES</h5> 
                 <br></br>
-                <table className="table">
+          
+                    <div className="col-md-6">
+                       <Form>
+                            <FormGroup>
+
+                                <Input type="text" id="dia" onChange={e=> this.dia =e.target.value} placeholder="Dia de la Semana: Lunes"/>
+                                <Input type="text" id="entrada" onChange={e=> this.entrada =e.target.value} placeholder="Hora de Entrada: 07:00:00 / 21:00:00"/>
+                                <Input type="text" id="salida" onChange={e=> this.salida =e.target.value} placeholder="Hora de Salida: 07:00:00 / 21:00:00"/>
+                            </FormGroup>
+                            <Button color="primary" block  onClick={this.post}>Buscar</Button>
+                        </Form>
+                        </div>
+               
+
+
+
+               {/*  <table className="table">
                     <thead>
                         <tr>
                         <td>
@@ -59,7 +77,7 @@ class Afluencia extends Component {
                         </td>
                         </tr>
 
-                    {/*     <tr>
+                    {/    <tr>
                         <td>
                             <h6>Hora de Entrada</h6>
                             <select name="entrada" id="entrada">
@@ -104,14 +122,14 @@ class Afluencia extends Component {
                              <option value="veintiuno"  onClick={this.post}>21:00</option>
                             </select>
                         </td>
-                        </tr> */}
+                        </tr> }
                      
                 
                         
 
                     </thead>
                     <tbody>
-{/* 
+ 
                        {this.state.data.map(horario=>{
                            return(
                                <tr>
@@ -120,10 +138,10 @@ class Afluencia extends Component {
                                    <td>{horario.horasalida}</td>
                                </tr>
                            )
-                       })} */}
+                       })} }
 
                     </tbody>
-                </table>
+                </table> */}
 
 
             </div>

@@ -15,7 +15,7 @@ class Busqueda extends Component {
 
    ingresardato=()=>{
     const token = localStorage.getItem('token');
-    const data={ cedula: this.cedula};
+    const cedula= this.cedula;
   
     axios.get( `https://app-bucetas.heroku.com/api/estudiante/${cedula} `, {
    headers: {
@@ -37,7 +37,8 @@ return(
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <form class="d-flex">
-      <input class="form-control me-2" type="text" id="cedula"  onChange={e=> this.cedula =e.target.value}  
+      <input class="form-control me-2" type="text" id="cedula"  
+         onChange={e=> this.cedula =e.target.value}  
         placeholder="Buscar con cedula" aria-label="Buscar" />
 
       <button class="btn btn-outline-success" type="submit" onClick={this.ingresardato}>Buscar</button>
