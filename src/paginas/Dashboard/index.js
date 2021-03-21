@@ -41,6 +41,10 @@ export default class Dashboard extends Component {
 
             <div>
                  <Header title="Dashboard" />
+                <Link to="/logout" className="btn btn-outline-primary  "block>
+                    Cerrar Sesion
+            </Link>
+            <hr className="my-3" />
                 <Router>
                 <Navegador />
                     <Switch>
@@ -53,10 +57,7 @@ export default class Dashboard extends Component {
                     </Switch>
                 </Router>
 
-                <hr className="my-3" />
-                <Link to="/logout" className="btn btn-outline-primary">
-                    Cerrar Sesion
-            </Link>
+       
 
             </div>
 

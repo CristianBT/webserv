@@ -11,15 +11,7 @@ class ListaEstudiantes extends Component {
     };
  
 
-/* constructor(props) {
-    super(props);
-           this.state={
-               lista: []
-           };
-       
-   } */
-
-   post=()=>{
+ /*   post=()=>{
         const token = localStorage.getItem('token');
         const requestOptions = {
             method: 'GET',
@@ -37,14 +29,10 @@ class ListaEstudiantes extends Component {
             this.setState({data});
                console.log(data)
            })
+   } */
 
-       
-                
-      
 
-   
 
-   }
    componentDidMount(){
     const token = localStorage.getItem('token');
     axios.get("https://app-bucetas.herokuapp.com/api/estudiante", {
@@ -52,13 +40,10 @@ class ListaEstudiantes extends Component {
         'token': token
    } 
     })
-
      .then(response=>{
         this.setState({lista: response.data.estudianteAll});
         console.log(response.data.estudianteAll)
     }) 
-    
-  
    }
 
 
