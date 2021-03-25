@@ -8,26 +8,113 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Busqueda extends Component {
 
+    constructor(props){
+      super(props)
+      this.state={
+          lista: [],
+          form: {
+            cedula_estudiantes: '',
 
-    state={
-        lista: []
-    };
+        }
+      };
+  }
+
+
+
+busqueda=()=>{
+
+  const token = localStorage.getItem("token");
+  const ced={cedula: this.cedula};
+             const requestInfo ={
+                method: 'GET',
+                body: JSON.stringify(),
+                headers: new Headers({
+                    'Authorization': `Bearer  ` ,
+                    'token': token
+                }),
+            };
+            fetch(`https://app-bucetas.heroku.com/api/estudiante/${this.cedula} `,requestInfo)
+            .then(response=>{
+              console.log(response.data)
+            }) 
+
+
+}
+
+
+
 
    ingresardato=()=>{
-    const token = localStorage.getItem('token');
-    const cedula= this.cedula;
-  
-    axios.get( `https://app-bucetas.heroku.com/api/estudiante/${cedula} `, {
+ /*    const token = localStorage.getItem('token');
+    const data={cedula: this.cedula};
+    console.log(data);
+      axios.get( `https://app-bucetas.heroku.com/api/estudiante/${data} `, {
    headers: {
         'token': token
-   } 
+   }
+   
     })
      .then(response=>{
-        this.setState({lista: response.data.estudianteAll});
-        console.log(response.data.estudianteAll)
-    }) 
+        this.setState({lista: response.data.estudianteById});
+        console.log(response.data.estudianteById)
+    })   */
+
+
+
+ /*    const token = localStorage.getItem('token');
+    const data=this.cedula;
+    console.log(data);
+    axios.get( `https://app-bucetas.heroku.com/api/estudiante/{data=cedula} `,{
+      headers: {
+        'token': token
+   }
+    })
+    .then(response=>{
+      this.setState({lista: response.data.estudianteById});
+      console.log(response.data.estudianteById)
+    }) */
+
+
+    const token = localStorage.getItem('token');
+    axios.get("https://app-bucetas.heroku.com/api/estudiante"+this.state.form.cedula_estudiantes,{
+       headers: {
+           'token': token
+       }
+   })
+   .then(response=>{
+    this.setState({lista: response.data.estudianteById});
+      console.log(response.data.estudianteById)
+       }).catch(error=>{
+           console.log(error.message);
+       })
+
+
+
+
+
+
+
+
+
    }
 
+/*    componentDidMount(){
+    const token = localStorage.getItem('token');
+    const data={cedula: this.cedula};
+    axios.get( `https://app-bucetas.heroku.com/api/estudiante/ `,{
+      params: {
+        data: ""
+      },
+      headers: {
+        'token': token
+   }
+    })
+    .then(response=>{
+      this.setState({lista: response.data.estudianteById});
+      console.log(response.data.estudianteById)
+    })
+
+   } */
 
 
 render (){
@@ -37,8 +124,9 @@ return(
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <form class="d-flex">
-      <input class="form-control me-2" type="text" id="cedula"  
-         onChange={e=> this.cedula =e.target.value}  
+      <input class="form-control me-2" type="text" id="cedula"  name="cedula_estudiante"
+         onChange={e=> this.cedula_estudiante =e.target.value}  
+
         placeholder="Buscar con cedula" aria-label="Buscar" />
 
       <button class="btn btn-outline-success" type="submit" onClick={this.ingresardato}>Buscar</button>
