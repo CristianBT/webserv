@@ -37,7 +37,7 @@ class Busqueda extends Component {
 
 
   }
-
+  
   ingresardato = () => {
     /*    const token = localStorage.getItem('token');
        const data={cedula: this.cedula};
@@ -85,43 +85,48 @@ class Busqueda extends Component {
 
 
 
+  componentDidMount() {
+    this.busqueda();
+  }
 
 
 
-     componentDidMount(){
- 
-         const token = localStorage.getItem('token');
-        axios.get("https://app-bucetas.herokuapp.com/api/estudiante", {
-            headers: {
-                'token': token
-            }
-        })
-            .then(response => {
-                this.setState({ lista: response.data.estudianteAll});
-                console.log(response.data.estudianteAll)
-            })
+
+  /*    componentDidMount(){
+      const token = localStorage.getItem('token');
+      const data={cedula: this.cedula};
+      axios.get( `https://app-bucetas.heroku.com/api/estudiante/ `,{
+        params: {
+          data: ""
+        },
+        headers: {
+          'token': token
+     }
+      })
+      .then(response=>{
+        this.setState({lista: response.data.estudianteById});
+        console.log(response.data.estudianteById)
+      })
   
-     } 
+     } */
 
 
   render() {
     return (
       <div>
 
-<div className="barraBusqueda">
-            <input
-              type="text"
-              placeholder="Buscar"
-              className="textField"
-              name="busqueda"
-              value={this.state.busqueda}
-              onChange={this.onChange}
-            />
-            <button type="button" className="btnBuscar" /*onClick={onClear}*/>
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <form class="d-flex">
+              <input class="form-control me-2" type="text" id="cedula_estudiante" name="cedula_estudiante"
+                onChange={e => this.cedula_estudiante = e.target.value}
 
-            </button>
+                placeholder="Buscar con cedula" aria-label="Buscar" />
+
+              <button class="btn btn-outline-success" type="submit" onClick={this.ingresardato}>Buscar</button>
+            </form>
           </div>
-     
+        </nav>
 
         <table className="table table-bordered">
           <thead className="thead-dark">
