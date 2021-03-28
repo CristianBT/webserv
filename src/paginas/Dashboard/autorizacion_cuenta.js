@@ -203,7 +203,7 @@ selecionarConductor=(lista)=>{
                 cedula_conductor: '',
                 apellido_conductor: '',
                 nombre_conductor: '',
-                state_conductor: false,
+                state_conductor: true,
                 numerorecorridomaximo: '',
                 tipoModal:''
             }
