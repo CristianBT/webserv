@@ -48,8 +48,8 @@ class Afluencia extends Component {
                             <FormGroup>
 
                                 <Input type="text" id="dia" onChange={e=> this.dia =e.target.value} placeholder="Dia de la Semana: Lunes"/>
-                                <Input type="text" id="entrada" onChange={e=> this.entrada =e.target.value} placeholder="Hora de Entrada: 07:00:00 / 21:00:00"/>
-                                <Input type="text" id="salida" onChange={e=> this.salida =e.target.value} placeholder="Hora de Salida: 07:00:00 / 21:00:00"/>
+                                <Input type="text" id="Hora" onChange={e=> this.entrada =e.target.value} placeholder="Hora: 07:00:00 / 21:00:00"/>
+                               
                             </FormGroup>
                             <Button color="primary" block  onClick={this.post}>Buscar</Button>
                         </Form>
