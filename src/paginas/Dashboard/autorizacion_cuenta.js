@@ -138,7 +138,7 @@ class Autorizacion extends Component {
                                     <td>{lista.numerorecorridomaximo}</td>
                                     <td>
                                         <button className="btn btn-primary" onClick={() => { this.seleccionarEmpresa(lista); this.modalInsertar() }}>Editar</button>
-                                        {"   "}
+                         
 
                                     </td>
                                 </tr>

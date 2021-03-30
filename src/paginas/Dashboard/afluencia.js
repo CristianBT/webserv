@@ -31,9 +31,8 @@ class Afluencia extends Component {
             })
 
    }
-   componentDidMount(){
-    
-   }
+ 
+   
 
 
 
