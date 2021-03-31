@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import Printer, { print } from 'react-pdf-print'
 
 
@@ -54,6 +53,8 @@ class ListaEstudiantes extends Component {
                                             <td>{lista.semestre.nombre}</td>
                                             <td>{lista.facultade.nombre}</td>
                                             <td>{lista.ciudad.nombre}</td>
+
+                                            
                                         </tr>
                                     )
                                 })}

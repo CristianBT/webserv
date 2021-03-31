@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
-import { Model, ModelBody, ModalFooter, ModalHeader } from 'reactstrap';
+
 
  const url = "https://app-bucetas.herokuapp.com/api/consultahorarios"; 
 
